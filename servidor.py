@@ -4,12 +4,12 @@ from datetime import datetime
 
 # Configuración del servidor
 HOST = 'localhost'
-PORT = 8080
+PORT = 5000
 
 # Inicializar la base de datos
 def inicializar_db():
     try:
-        conn = sqlite3.connect('chat.db')
+        conn = sqlite3.connect('mensajes.db')
         cursor = conn.cursor()
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS mensajes (
@@ -40,7 +40,7 @@ def inicializar_socket():
 # Guardar el mensaje recibido en la base de datos
 def guardar_mensaje(contenido, ip_cliente):
     try:
-        conn = sqlite3.connect('chat.db')
+        conn = sqlite3.connect('mensajes.db')
         cursor = conn.cursor()
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         cursor.execute('''

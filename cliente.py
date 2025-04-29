@@ -2,7 +2,7 @@ import socket
 
 # Configuración del cliente
 HOST = 'localhost'
-PORT = 8080
+PORT = 5000
 
 def main():
     # Inicializar el socket del cliente
@@ -14,11 +14,11 @@ def main():
         print(f"Error de conexión: {e}")
         return
 
-    # Enviar múltiples mensajes hasta escribir 'éxito'
+    # Enviar múltiples mensajes hasta escribir 'exito'
     try:
         while True:
-            mensaje = input("Ingrese un mensaje (o escriba 'éxito' para salir): ")
-            if mensaje.lower() == 'éxito':
+            mensaje = input("Ingrese un mensaje (o escriba 'exito' para salir): ")
+            if mensaje.lower() == 'exito':
                 print("Finalizando conexión...")
                 break
             client_socket.sendall(mensaje.encode('utf-8'))
